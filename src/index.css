@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Sarabun:wght@500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1, h2, h3, h4, h5, h6, header {
+  font-family: 'Merriweather', sans-serif;
+}
+
+p, span, a, input, button, textarea, article {
+  font-family: 'Sarabun', sans-serif;
+}
+
+a {
+  @apply underline
+}
+
+main {
+  @apply md:my-24 md:px-32 grid w-full place-items-center gap-12
+}
+
+.title {
+  @apply text-5xl font-black text-gray-600;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}

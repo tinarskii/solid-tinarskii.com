@@ -1,5 +1,5 @@
 import type { Component } from "solid-js";
-import { about, contact, education, events, interests, projects, technology } from "./data";
+import { about, contact, education, events, interests, projects, technology, images } from "./data";
 import { For, Show } from "solid-js";
 import { setState, state } from "./lib/store";
 import { Trans, useTransContext } from "@mbarzda/solid-i18next";
@@ -40,34 +40,16 @@ const App: Component = (i18n: any) => {
         </a>
       </div>
       <div class="carousel w-full rounded-lg">
-        <div id="slide1" class="carousel-item relative w-full">
-          <img src="party_tin.webp" class="object-cover w-full h-[65vh]" />
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide4" class="btn btn-circle">❮</a>
-            <a href="#slide2" class="btn btn-circle">❯</a>
+        <For each={images}>{(img, idx) =>
+          <div id={`slide${idx() + 1}`} class="carousel-item relative w-full">
+            <img src={img} class="object-cover w-full h-[65vh]" />
+            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <a href={`#slide${idx() || images.length}`} class="btn btn-circle">❮</a>
+              <a href={`#slide${idx() + 2 > images.length ? 1 : idx() + 2}`} class="btn btn-circle">❯</a>
+            </div>
           </div>
-        </div>
-        <div id="slide2" class="carousel-item relative w-full">
-          <img src="tin.webp" class="object-cover object-top w-full h-[65vh]" />
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide1" class="btn btn-circle">❮</a>
-            <a href="#slide3" class="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide3" class="carousel-item relative w-full">
-          <img src="m12p.webp" class="object-cover w-full h-[65vh]" />
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide2" class="btn btn-circle">❮</a>
-            <a href="#slide4" class="btn btn-circle">❯</a>
-          </div>
-        </div>
-        <div id="slide4" class="carousel-item relative w-full">
-          <img src="tpfz.webp" class="object-cover object-top w-full h-[65vh]" />
-          <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide3" class="btn btn-circle">❮</a>
-            <a href="#slide1" class="btn btn-circle">❯</a>
-          </div>
-        </div>
+        }
+        </For>
       </div>
       <section class={'flex flex-col items-center gap-2'}>
         <h1 class={'text-6xl text-center'}><Trans key="name"></Trans></h1>
@@ -86,9 +68,6 @@ const App: Component = (i18n: any) => {
               <p><b>Also known as</b></p>         {about.aka}
               <p><b>Date of Birth</b></p>         {(new Date(about.dob)).toLocaleDateString('ja-JP')}
               <p><b>Age</b></p>                   {about.age}
-              <p><b>Height</b></p>                {about.height}
-              <p><b>Weight</b></p>                {about.weight}
-              <p><b>Status</b></p>                {about.status}
               <p><b>Occupations</b></p>           {about.jobs}
               <p><b>Language</b></p>              {about.language}
             </div>
@@ -128,13 +107,23 @@ const App: Component = (i18n: any) => {
         <header class={'text-4xl md:text-left text-center cursor-pointer'} id={'events'} onClick={() => location.href = "#events"}>✨Events</header>
         <div class={'grid md:grid-cols-2 grid-cols-1 gap-6'}>
           <For each={events}>{(evt) =>
-            <p>
-              <b>{evt.name}</b> <br /> by {evt.org} <br /> as a {evt.roles} <br /><br />
-              {evt.info}
-              <br /><br />
-              Awards: {evt.award} <br />
-              Links: <a href={evt.links}>Watch</a>
-            </p>
+            <section
+              class={'bg-white/10 rounded-lg bg-center'}
+              style={{ "background-image": `url(${evt.img})` }}
+            >
+              <div class={`w-full h-full gap-4 flex flex-col justify-center rounded-lg ${evt.img ? 'bg-black/75' : ''} p-6`}>
+                <div class={'flex flex-col items-center justify-center'}>
+                  <p class={'text-xl'}><b>{evt.name}</b></p>
+                  <p>(Organized by {evt.org})</p>
+                </div>
+                <p>as a {evt.roles}</p>
+                <p>{evt.info}</p>
+                <div class={'flex flex-col items-center justify-center'}>
+                  <Show when={evt.award}><p>Awards: {evt.award}</p></Show>
+                  <Show when={evt.links}><p>Links: <a href={evt.links}>Watch</a></p></Show>
+                </div>
+              </div>
+            </section>
           }</For>
         </div>
       </section>
@@ -142,14 +131,19 @@ const App: Component = (i18n: any) => {
         <header class={'text-4xl md:text-left text-center cursor-pointer'} id={'projects'} onClick={() => location.href = "#projects"}>🎈Projects</header>
         <div class={'grid md:grid-cols-2 grid-cols-1 gap-6'}>
           <For each={projects}>{(project) =>
-            <div class={'p-6 bg-white/10 gap-4 flex flex-col justify-center items-center rounded-lg'}>
-              <p><b>{project.name}</b> by {project.from}</p>
-              {project.info}
-              <div class={'flex flex-row gap-2'}>
-                <button class={'btn btn-primary'} onClick={() => window.open("//" + project.link)}>Visit Website</button>
-                <button class={'btn btn-primary btn-outline'} onClick={() => window.open("//" + project.gh)}>View Repository</button>
+            <section
+              class={`bg-white/10 rounded-lg bg-center bg-no-repeat ${project.full ? 'bg-cover' : 'bg-contain'}`}
+              style={{ "background-image": `url(${project.img})` }}
+            >
+              <div class={`w-full h-full gap-4 flex flex-col justify-center rounded-lg ${project.img ? 'bg-black/75' : ''} p-6`}>
+                <p class={'text-xl'}><b>{project.name}</b> by {project.from}</p>
+                {project.info}
+                <div class={'flex flex-row gap-2'}>
+                  <button class={'btn btn-primary'} onClick={() => window.open("//" + project.link)}>Visit Website</button>
+                  <button class={'btn btn-primary btn-outline'} onClick={() => window.open("//" + project.gh)}>View Repository</button>
+                </div>
               </div>
-            </div>
+            </section>
           }</For>
         </div>
       </section>
@@ -178,9 +172,9 @@ const App: Component = (i18n: any) => {
         </section>
       </div>
       <div class="flex w-full items-center justify-center">
-        <a href="https://github.com/mulforma" title="The Mulforma Creators">
+        <a href="https://mulforma.space/" title="Mulforma">
           <img
-            alt="The Mulforma Creators"
+            alt="Mulforma"
             width="32"
             height="32"
             class="hover:scale-110 duration-200"

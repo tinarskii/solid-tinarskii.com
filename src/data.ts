@@ -5,27 +5,27 @@ export const about = {
   age      : new Date(new Date().getTime() - 1226282400000).getFullYear() - 1970,
   aka      : "Tinarskii",
   loc      : "Samutprakarn, Thailand",
-  height   : "180 cm",
-  weight   : "90 kg",
+  height   : "180 cm", // 179 to be exact but ok
+  weight   : "86 kg",
   blood    : "B",
   disease  : "None",
   status   : "Single",
   religion : "พระบาทสมเด็จพระบรมชนกาธิเบศรมหาภูมิพลอดุลยเดชมหาราชบรมนาถบพิตร",
   language : "Thai (Native), English (Fluent), Chinese (Intermediate)",
-  jobs     : "Student",
+  /* thoughtworks and brikl pls hire me */jobs     : "Student",
 }
 
 export const contact = [
   "Github ",  "github.com/tinarskii",
   "Facebook ",  "facebook.com/tinarskii",
   "Twitter",  "twitter.com/tinarskii",
-  "Twitch",  "twitch.tv/tinarskii",
+  "Twitch",  "twitch.tv/moldyy_Tin",
   "Youtube",  "youtube.com/tinarskii",
   "Steam",  "steamcommunity.com/id/tinarskii",
   "Reddit",  "reddit.com/u/tinarskii",
   "Medium",  "tinarskii.medium.com/#/tinarskii",
   "TikTok",  "tiktok.com/@tinarskii/#/tinarskii",
-  "Instagram",  "instagram.com/tinarsk.ii",
+  "Instagram",  "instagram.com/t1.narskii",
   "Discord",  "tinyurl.com/tinarskii#2065",
   "Website",  "www.tinarskii.com",
   "Blog (Hashnode)",  "journey.tinarskii.com",
@@ -47,7 +47,7 @@ export const education = [
     level: "Secondary School",
     grade: "3.88 (Secondary 1)",
     prog : "i-Science (ACSP GEMS Project: i-Classroom)",
-    cert : [{ desc: "S.1 Semester 1", path: "/ed/m1t1.png" }, { desc: "S.1 Semester 2", path: "/ed/m1t2.jpg" }],
+    cert : [{ desc: "S.1/1", path: "/ed/m1t1.png" }, { desc: "S.1/2", path: "/ed/m1t2.jpg" }],
   },
 ]
 
@@ -71,13 +71,31 @@ export const events = [
     img  : "https://creatorsgarten.org/images/hacks/compressed/sht6.webp"
   },
   {
+    name : "Bkk.js Meetup #16",
+    org  : "Creatorsgarten Thailand",
+    roles: "Participant",
+    info : "เพื่อเฉลิมฉลองเดือน บางกอกวิทยา ของกรุงเทพมหานคร กลัวมาแล้วกับ Bkk.js Meetup #16",
+    award: "(NOT A COMPETITION)",
+    links: "",
+    img  : "https://p-u.popcdn.net/event_details/posters/000/013/479/large/715f8dc35b5366bf025ae729b7bae609701080d9.png?1660276121"
+  },
+  {
     name : "Code Golf Party #1",
     org  : "showdown.space and Creatorsgarten Thailand",
     roles: "Participant",
     info : "⛳️Code Golf เป็นกิจกรรมนันทนาการสำหรับโปรแกรมเมอร์ เป็นกิจกรรมที่มีโจทย์ปัญหามาให้เขียนโปรแกรมแก้ แล้วมาหาวิธีแก้ที่ใช้ซอร์ซโค้ดขนาดเล็กที่สุด",
     award: "(None)",
+    links: "https://www.facebook.com/showdown.space/videos/589192172698870",
+    img  : "https://scontent.fbkk8-2.fna.fbcdn.net/v/t39.30808-6/298664741_1752854085047490_3476851038825162428_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=340051&_nc_eui2=AeE9vooIoEeknJZ24mQ4WGgPyByTlg-7EDjIHJOWD7sQOKaDuEf8HitPJ1Bbak5HkZpwJfhPJVsQU-buMszGUsYA&_nc_ohc=8-xfXWNS5uUAX8peEMt&_nc_ht=scontent.fbkk8-2.fna&oh=00_AfAMv-2BL-dmVZWaN6hCAogrWB-FKH68h_aYSEK6m6SetA&oe=6368B476"
+  },
+  {
+    name : "Hacktoberfest Thailand 2022",
+    org  : "Creatorsgarten Thailand and Thinc.",
+    roles: "Contributors",
+    info : "We are hosting the Thailand chapter of the annual Hacktoberfest event, a global open-source contribution challenge held each year in October to introduce and incentivize people to contribute to open-source software.",
+    award: "(NOT A COMPETITION)",
     links: "",
-    img  : "https://creatorsgarten.org/images/hacks/compressed/golf1.webp"
+    img  : "https://miro.medium.com/max/828/1*0DQlVH0bYOGG_UEhrOMN0g.png"
   },
 ]
 
@@ -88,7 +106,8 @@ export const projects = [
     info: "The Thai Mutation Language To Normal Thai Language Global Translator",
     gh  : "github.com/wrong-lang/WrongLang",
     link: "www.wrong-lang.click",
-    img : "https://raw.githubusercontent.com/wrong-lang/WrongLang/main/public/web.png"
+    img : "/wl_cover.png",
+    full: true
   },
   {
     name: "Spark",
@@ -96,7 +115,8 @@ export const projects = [
     info: "Portable version of WrongLang, available now for Windows!",
     gh  : "github.com/wrong-lang/spark",
     link: "spark.wrong-lang.click",
-    img : "https://raw.githubusercontent.com/wrong-lang/spark/main/assets/logo.png"
+    img : "/spark_cover.png",
+    full: true
   },
   {
     name: "Sveltaily",
@@ -104,7 +124,8 @@ export const projects = [
     info: "Sveltekit and TailwindCSS boilerplate with tests and more!",
     gh  : "github.com/mulforma/Sveltaily",
     link: "",
-    img : "https://raw.githubusercontent.com/mulforma/Sveltaily/bfb33727af77113a313d364040229d2e348d0187/static/Sveltaily.svg"
+    img : "/taily_cover.png",
+    full: true
   },
   {
     name: "HardTail",
@@ -112,24 +133,17 @@ export const projects = [
     info: "SolidJS and TailwindCSS boilerplate with tests and more!",
     gh  : "github.com/mulforma/HardTail",
     link: "hard-tail.vercel.app",
-    img : "https://raw.githubusercontent.com/mulforma/HardTail/main/public/logo.png"
+    img : "/taily2_cover.png",
+    full: true
   },
   {
-    name: "LYNK::R (lynkr.lol)",
-    from: "Mulforma",
-    info: "It's a storage for your links, with a simple and clean UI, build with SolidJS",
-    gh  : "github.com/mulforma/lynkr.lol",
-    link: "lynkr.lol",
-    img : "https://lynkr.lol/LYNKR.png"
-  },
-  {
-    name: "Mulforma Zelar",
+    name: "Moore",
     from: "Mulforma",
     info: "A discord bot built with Discord.js with a lot of functionality!",
     gh  : "github.com/mulforma/zelar",
     link: "zelar.mulforma.space",
-    img : "https://raw.githubusercontent.com/mulforma/Zelar/main/app/assets/logo.png",
-    full: 0
+    img : "/moore_cover.png",
+    full: true
   },
   {
     name: "XURLSH",
@@ -137,7 +151,17 @@ export const projects = [
     info: "The VVX URL Shortener, built with go",
     gh  : "github.com/mulforma/xurlsh",
     link: "x.vvx.bar",
-    img : "https://x.vvx.bar/public/logo.svg"
+    img : "/xurlsh_cover.png",
+    full: true
+  },
+  {
+    name: "LYNK::R (lynkr.lol)",
+    from: "Mulforma",
+    info: "It's a storage for your links, with a simple and clean UI, build with SolidJS",
+    gh  : "github.com/mulforma/lynkr.lol",
+    link: "lynkr.lol",
+    img : "/lynkr_cover.png",
+    full: true
   },
   {
     name: "Karma Soulbound",
@@ -145,14 +169,8 @@ export const projects = [
     info: "กรรม, but on blockchain (SHiT6 Project)",
     gh  : "github.com/karma-soulbound",
     link: "localhost:3000",
-    img : "https://raw.githubusercontent.com/karma-soulbound/karma-soulbound-ui/main/static/icon.png"
-  },
-  {
-    name: "Learn Manoonchai",
-    from: "Manoonchai",
-    info: "Learn Thai Manoonchai Keyboard Layout Easily!",
-    gh  : "github.com/manoonchai/learn",
-    link: "learn.manoonchai.com",
+    img : "/de.png",
+    full: true
   },
   {
     name: "Pong Fish",
@@ -160,7 +178,7 @@ export const projects = [
     info: "Popcat, but it's a fish",
     gh  : "",
     link: "pong-fish.vvx.bar",
-    img : "https://i.ibb.co/Snc7PY3/Screenshot-2022-01-29-at-12-40-03.png",
+    img : "/popfish.png",
     full: true
   },
   {
@@ -169,7 +187,16 @@ export const projects = [
     info: "Collections of Thai Jokes Website",
     gh  : "github.com/tinarskii/mukpakpak",
     link: "thjokes.tin-sci.me",
-    img : "https://raw.githubusercontent.com/tinarskii/MukPakPak/main/static/thumbnail.jpeg",
+    img : "/mukquotes_cover.png",
+    full: true
+  },
+  {
+    name: "Awesome Curry Quotes",
+    from: "Tinarskii",
+    info: "Collections of awesome quotes from กะหรี่",
+    gh  : "github.com/tinarskii/awesome-curry-quotes",
+    link: "watacurry.vercel.app",
+    img : "/watacurry_cover.png",
     full: true
   },
   {
@@ -178,39 +205,23 @@ export const projects = [
     info: "Soundboard but it's all neps",
     gh  : "github.com/tinarskii/soundnep",
     link: "soundnep.tin-sci.me",
-    img : "https://raw.githubusercontent.com/tinarskii/soundnep/27138bd1eb4882586a0046e9ad15b33066999e1d/static/Sveltaily.svg"
-  },
-  {
-    name: "Awesome Curry Quotes",
-    from: "Tinarskii",
-    info: "Collections of awesome quotes from กะหรี่",
-    gh  : "github.com/tinarskii/awesome-curry-quotes",
-    link: "watacurry.vercel.app",
-    img : "https://raw.githubusercontent.com/tinarskii/awesome-curry-quotes/main/static/favicon.png"
-  },
-  {
-    name: "Watasalim Twitter Bot",
-    from: "Tinarskii",
-    info: "Twitter bot that tweet วาทะสลิ่ม every hour",
-    gh  : "github.com/tinarskii/SalimQuotesTwitterBot",
-    link: "twitter.com/@watasalim",
-    img : "https://pbs.twimg.com/profile_banners/1535300202730442752/1654879200/1500x500",
+    img : "/nep_cover.gif",
     full: true
   },
 ]
 
 export const technology = {
-  lang:      ["JavaScript", "TypeScript", "Java", "SQL", "Python", "Go", "C", "C++"],
-  framework: ["Solid.js", "Svelte.js", "Vue.js", "React.js", "Next.js", "TailwindCSS"],
-  ides:      ["IntelliJ IDEA Ultimate", "WebStorm", "Goland", "CLion", "Riders", "Visual Studio Code - Insiders"],
+  lang:      ["TypeScript", "JavaScript"],
+  framework: ["Solid.js", "Svelte", "TailwindCSS"],
+  ides:      ["IntelliJ IDEA", "WebStorm"],
   tools:     ["Git", "Fish", "Docker"],
-  misc:      ["Microsoft Azure", "Amazon Web Services", "Vercel", "Cloudflare", "Netlify", "Heroku", "Railway", "Google Cloud Platform", "Firebase", "Supabase"]
+  misc:      ["Microsoft Azure", "AWS", "Vercel", "Cloudflare", "Railway", "Supabase"]
 }
 
 export const interests = {
-  subject: ["Computer Science", "Biology", "Astronomy", "Photography", "Video Editing", "Web Developing"],
-  games:   ["First Person Shooting", "RPG", "Sandbox", "Indie", "Nep nep nep nep"],
-  music:   ["Thai Rock", "Thai Pop", "Rhythms and Blues", "Jazz"],
+  subject: ["Computer Science", "Linguistics", "Chemistry"],
+  games:   ["Counter-Strike: Global Offensive", "Neptunia Series", "Minecraft", "Blue Archive"],
+  music:   ["Thai Rock"],
 }
 
 export const courses = [
@@ -222,4 +233,4 @@ export const courses = [
   },
 ]
 
-export const images = ["labcom1.jpg", "m22.jpg", "labcom2.jpg", "stlouis.jpg"]
+export const images = ["nsm.jpg", "m22.jpg", "labcom1.jpg", "stlouis.jpg"]

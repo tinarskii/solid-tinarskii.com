@@ -55,13 +55,13 @@ const App: Component = (i18n: any) => {
         <h1 class={'text-6xl text-center'}><Trans key="name"></Trans></h1>
         <h2 class={'text-2xl text-center'}><Trans key="nick"></Trans></h2>
       </section>
-      <article class={'text-lg md:text-left text-justify'} data-i18n="[html]desc">
+      <article class={'text-lg lg:text-left text-justify'} data-i18n="[html]desc">
         <Trans key="desc" options={{ interpolation: { escapeValue: false }}}></Trans>
       </article>
-      <div class={'grid md:grid-cols-2 grid-cols-1 gap-8'}>
+      <div class={'grid lg:grid-cols-2 grid-cols-1 gap-8'}>
         <section class={'flex flex-col w-full gap-4'}>
-          <header class={'text-4xl md:text-left text-center cursor-pointer'} id={'personal_info'} onClick={() => location.href = "#personal_info"}>🎈Personal Information</header>
-          <div class={'grid md:grid-cols-2 grid-cols-1 gap-6'}>
+          <header class={'text-4xl lg:text-left text-center cursor-pointer'} id={'personal_info'} onClick={() => location.href = "#personal_info"}>🎈Personal Information</header>
+          <div class={'grid lg:grid-cols-2 grid-cols-1 gap-6'}>
             <div class={'grid grid-cols-2 gap-6 place-items-left items-center'}>
               <p><b>Name</b></p>                  {about.name}
               <p><b>Nickname</b></p>              {about.nick}
@@ -74,8 +74,8 @@ const App: Component = (i18n: any) => {
           </div>
         </section>
         <section class={'flex flex-col w-full gap-4'}>
-          <header class={'text-4xl md:text-left text-center cursor-pointer'} id={'connect'} onClick={() => location.href = "#connect"}>🔗Connect with me</header>
-          <div class={'grid md:grid-cols-2 grid-cols-1 gap-6'}>
+          <header class={'text-4xl lg:text-left text-center cursor-pointer'} id={'connect'} onClick={() => location.href = "#connect"}>🔗Connect with me</header>
+          <div class={'grid lg:grid-cols-2 grid-cols-1 gap-6'}>
             <div class={'grid grid-cols-2 gap-6 place-items-left items-center'}>
               <For each={contact}>{(_, idx) =>
                 <Show when={idx() % 2 === 0}>
@@ -87,7 +87,7 @@ const App: Component = (i18n: any) => {
         </section>
       </div>
       <section class={'flex flex-col w-full gap-4'}>
-        <header class={'text-4xl md:text-left text-center cursor-pointer'} id={'education'} onClick={() => location.href = "#education"}>🎓Education</header>
+        <header class={'text-4xl lg:text-left text-center cursor-pointer'} id={'education'} onClick={() => location.href = "#education"}>🎓Education</header>
         <div class={'flex flex-row gap-6'}>
           <For each={education}>{(edu) =>
             <p>
@@ -104,11 +104,11 @@ const App: Component = (i18n: any) => {
         </div>
       </section>
       <section class={'flex flex-col w-full gap-4'}>
-        <header class={'text-4xl md:text-left text-center cursor-pointer'} id={'events'} onClick={() => location.href = "#events"}>✨Events</header>
-        <div class={'grid md:grid-cols-2 grid-cols-1 gap-6'}>
+        <header class={'text-4xl lg:text-left text-center cursor-pointer'} id={'events'} onClick={() => location.href = "#events"}>✨Events</header>
+        <div class={'grid lg:grid-cols-2 grid-cols-1 gap-6'}>
           <For each={events}>{(evt) =>
             <section
-              class={'bg-white/10 rounded-lg bg-center'}
+              class={'bg-white/10 rounded-lg bg-center hoverable'}
               style={{ "background-image": `url(${evt.img})` }}
             >
               <div class={`w-full h-full gap-4 flex flex-col justify-center rounded-lg ${evt.img ? 'bg-black/75' : ''} p-6`}>
@@ -128,29 +128,32 @@ const App: Component = (i18n: any) => {
         </div>
       </section>
       <section class={'flex flex-col w-full gap-4'}>
-        <header class={'text-4xl md:text-left text-center cursor-pointer'} id={'projects'} onClick={() => location.href = "#projects"}>🎈Projects</header>
-        <div class={'grid md:grid-cols-2 grid-cols-1 gap-6'}>
+        <header class={'text-4xl lg:text-left text-center cursor-pointer'} id={'projects'} onClick={() => location.href = "#projects"}>🎈Projects</header>
+        <div class={'grid lg:grid-cols-2 grid-cols-1 gap-6'}>
           <For each={projects}>{(project) =>
             <section
-              class={`bg-white/10 rounded-lg bg-center bg-no-repeat ${project.full ? 'bg-cover' : 'bg-contain'}`}
+              class={`bg-white/10 rounded-xl bg-center bg-no-repeat 
+              ${project.full ? 'bg-cover' : 'bg-contain'} ${project.img ? 'bg-center' : ''}
+              hoverable
+              `}
               style={{ "background-image": `url(${project.img})` }}
             >
-              <div class={`w-full h-full gap-4 flex flex-col justify-center rounded-lg ${project.img ? 'bg-black/75' : ''} p-6`}>
+              <div class={`w-full h-full gap-4 flex flex-col justify-center rounded-lg bg-black/75 p-6 text-center items-center juistify-center`}>
                 <p class={'text-xl'}><b>{project.name}</b> by {project.from}</p>
                 {project.info}
                 <div class={'flex flex-row gap-2'}>
-                  <button class={'btn btn-primary'} onClick={() => window.open("//" + project.link)}>Visit Website</button>
-                  <button class={'btn btn-primary btn-outline'} onClick={() => window.open("//" + project.gh)}>View Repository</button>
+                  <button class={'btn btn-sm btn-primary'} onClick={() => window.open("//" + project.link)}>Visit Website</button>
+                  <button class={'btn btn-sm btn-ghost'} onClick={() => window.open("//" + project.gh)}>View Repository</button>
                 </div>
               </div>
             </section>
           }</For>
         </div>
       </section>
-      <div class={'grid md:grid-cols-2 grid-cols-1 gap-8'}>
+      <div class={'grid lg:grid-cols-2 grid-cols-1 gap-8'}>
         <section class={'flex flex-col w-full gap-4'}>
-          <header class={'text-4xl md:text-left text-center cursor-pointer'} id={'technology'} onClick={() => location.href = "#technology"}>💻Technology</header>
-          <div class={'grid md:grid-cols-2 grid-cols-1 gap-6'}>
+          <header class={'text-4xl lg:text-left text-center cursor-pointer'} id={'technology'} onClick={() => location.href = "#technology"}>💻Technology</header>
+          <div class={'grid lg:grid-cols-2 grid-cols-1 gap-6'}>
             <div class={'grid grid-cols-2 gap-6 place-items-left items-center'}>
               <p><b>Programming Languages</b></p> {technology.lang.join(", ")}
               <p><b>Frameworks</b></p> {technology.framework.join(", ")}
@@ -161,8 +164,8 @@ const App: Component = (i18n: any) => {
           </div>
         </section>
         <section class={'flex flex-col w-full gap-4'}>
-          <header class={'text-4xl md:text-left text-center cursor-pointer'} id={'interests'} onClick={() => location.href = "#interests"}>💍Interests</header>
-          <div class={'grid md:grid-cols-2 grid-cols-1 gap-6'}>
+          <header class={'text-4xl lg:text-left text-center cursor-pointer'} id={'interests'} onClick={() => location.href = "#interests"}>💍Interests</header>
+          <div class={'grid lg:grid-cols-2 grid-cols-1 gap-6'}>
             <div class={'grid grid-cols-2 gap-6 place-items-left items-center'}>
               <p><b>Subject</b></p> {interests.subject.join(", ")}
               <p><b>Games</b></p> {interests.games.join(", ")}
@@ -175,10 +178,10 @@ const App: Component = (i18n: any) => {
         <a href="https://mulforma.space/" title="Mulforma">
           <img
             alt="Mulforma"
-            width="32"
-            height="32"
+            width="64"
+            height="64"
             class="hover:scale-110 duration-200"
-            src="/Mulforma.svg"
+            src="/mulforma.svg"
           />
         </a>
       </div>

@@ -31,3 +31,7 @@ main {
 ::-webkit-scrollbar {
     width: 5px;
 }
+
+.hoverable {
+    @apply hover:shadow-xl hover:scale-[1.05] transition-all duration-300;
+}

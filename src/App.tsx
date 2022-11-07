@@ -1,6 +1,6 @@
 import type { Component } from "solid-js";
 import { about, contact, education, events, interests, projects, technology, images } from "./data";
-import { For, Show } from "solid-js";
+import { For, onMount, Show } from "solid-js";
 import { setState, state } from "./lib/store";
 import { Trans, useTransContext } from "@mbarzda/solid-i18next";
 
@@ -11,7 +11,6 @@ const flag = {
 
 const App: Component = (i18n: any) => {
   const [t, { changeLanguage }] = useTransContext();
-
   return (
     <main>
       <div class="absolute top-0 right-0 p-6 flex flex-row gap-2">
@@ -39,18 +38,14 @@ const App: Component = (i18n: any) => {
           />
         </a>
       </div>
-      <div class="carousel w-full rounded-lg">
-        <For each={images}>{(img, idx) =>
-          <div id={`slide${idx() + 1}`} class="carousel-item relative w-full">
-            <img src={img} class="object-cover w-full h-[65vh]" />
-            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a href={`#slide${idx() || images.length}`} class="btn btn-circle">❮</a>
-              <a href={`#slide${idx() + 2 > images.length ? 1 : idx() + 2}`} class="btn btn-circle">❯</a>
-            </div>
-          </div>
-        }
-        </For>
-      </div>
+      <section class="ac flex flex-row w-full overflow-x-scroll snap-x gap-0 flex-nowrap rounded-2xl">
+         <For each={images}>{(img) =>
+           <div class="item box-content snap-start w-full h-full relative flex flex-none">
+             <img src={img} class="object-cover w-full h-[65vh] " />
+           </div>
+         }
+         </For>
+      </section>
       <section class={'flex flex-col items-center gap-2'}>
         <h1 class={'text-6xl text-center'}><Trans key="name"></Trans></h1>
         <h2 class={'text-2xl text-center'}><Trans key="nick"></Trans></h2>
@@ -60,16 +55,16 @@ const App: Component = (i18n: any) => {
       </article>
       <div class={'grid lg:grid-cols-2 grid-cols-1 gap-8'}>
         <section class={'flex flex-col w-full gap-4'}>
-          <header class={'text-4xl lg:text-left text-center cursor-pointer'} id={'personal_info'} onClick={() => location.href = "#personal_info"}>🎈Personal Information</header>
+          <header class={'text-4xl lg:text-left text-center cursor-pointer'} id={'personal_info'} onClick={() => location.href = "#personal_info"}>🎈<Trans key="pinfo.title" /></header>
           <div class={'grid lg:grid-cols-2 grid-cols-1 gap-6'}>
             <div class={'grid grid-cols-2 gap-6 place-items-left items-center'}>
-              <p><b>Name</b></p>                  {about.name}
-              <p><b>Nickname</b></p>              {about.nick}
-              <p><b>Also known as</b></p>         {about.aka}
-              <p><b>Date of Birth</b></p>         {(new Date(about.dob)).toLocaleDateString('ja-JP')}
-              <p><b>Age</b></p>                   {about.age}
-              <p><b>Occupations</b></p>           {about.jobs}
-              <p><b>Language</b></p>              {about.language}
+              <p><b><Trans key="pinfo.name" /></b></p>               {about.name}
+              <p><b><Trans key="pinfo.nick" /></b></p>              {about.nick}
+              <p><b><Trans key="pinfo.aka" /></b></p>                {about.aka}
+              <p><b><Trans key="pinfo.dob" /></b></p>                {(new Date(about.dob)).toLocaleDateString('ja-JP')}
+              <p><b><Trans key="pinfo.age" /></b></p>                {about.age}
+              <p><b><Trans key="pinfo.job" /></b></p>                {about.jobs}
+              <p><b><Trans key="pinfo.lang" /></b></p>               {about.language}
             </div>
           </div>
         </section>
@@ -175,15 +170,10 @@ const App: Component = (i18n: any) => {
         </section>
       </div>
       <div class="flex w-full items-center justify-center">
-        <a href="https://mulforma.space/" title="Mulforma">
-          <img
-            alt="Mulforma"
-            width="64"
-            height="64"
-            class="hover:scale-110 duration-200"
-            src="/mulforma.svg"
-          />
-        </a>
+        <p class="text-gray-400 text-center">
+          Copyright © 2022 Tinnaphat Somsang <br />
+          All rights reserved.
+        </p>
       </div>
     </main>
   );

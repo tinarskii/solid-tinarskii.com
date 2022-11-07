@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --no-of-slides: 3;
+    --slide-width: 100%;
+}
+
 h1, h2, h3, h4, h5, h6, header {
     font-family: 'Merriweather', 'Sarabun', sans-serif;
 }
@@ -29,7 +34,38 @@ main {
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 0rem;
+    height: 0;
+}
+
+/*::-webkit-scrollbar-track {*/
+/*    background: #272935;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb {*/
+/*    background: #ff7ac6;*/
+/*    border-radius: 9999px;*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb:hover {*/
+/*    background: hsl(326 100% 59%);*/
+/*}*/
+
+
+.item {
+    animation: 60s infinite slide cubic-bezier(0.37, 0, 0.63, 1);
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(calc(var(--slide-width) * var(--no-of-slides)* -1));
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .hoverable {

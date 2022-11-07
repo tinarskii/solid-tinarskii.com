@@ -12,7 +12,7 @@ export const about = {
   status   : "Single",
   religion : "พระบาทสมเด็จพระบรมชนกาธิเบศรมหาภูมิพลอดุลยเดชมหาราชบรมนาถบพิตร",
   language : "Thai (Native), English (Fluent), Chinese (Intermediate)",
-  /* thoughtworks and brikl pls hire me */jobs     : "Student",
+  jobs     : "Student",
 }
 
 export const contact = [
@@ -47,7 +47,11 @@ export const education = [
     level: "Secondary School",
     grade: "3.88 (Secondary 1)",
     prog : "i-Science (ACSP GEMS Project: i-Classroom)",
-    cert : [{ desc: "S.1/1", path: "/ed/m1t1.png" }, { desc: "S.1/2", path: "/ed/m1t2.jpg" }],
+    cert : [
+      { desc: "Semester 1", path: "/ed/m1t1.png" },
+      { desc: "Semester 2", path: "/ed/m1t2.jpg" },
+      { desc: "Semester 3", path: "/ed/m2t1.jpeg" },
+    ],
   },
 ]
 
@@ -177,7 +181,7 @@ export const projects = [
     from: "Tinarskii",
     info: "Popcat, but it's a fish",
     gh  : "",
-    link: "pong-fish.vvx.bar",
+    link: "pong-fish.vercel.app",
     img : "/popfish.png",
     full: true
   },
@@ -193,7 +197,7 @@ export const projects = [
   {
     name: "Awesome Curry Quotes",
     from: "Tinarskii",
-    info: "Collections of awesome quotes from กะหรี่",
+    info: "Collections of awesome quotes from 🍛",
     gh  : "github.com/tinarskii/awesome-curry-quotes",
     link: "watacurry.vercel.app",
     img : "/watacurry_cover.png",

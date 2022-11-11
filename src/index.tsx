@@ -1,9 +1,10 @@
 /* @refresh reload */
 import "./index.css";
 import { render } from "solid-js/web";
-import App from "./App";
-import { TransProvider, Trans } from '@mbarzda/solid-i18next';
+import RoutesPage from "./Routes";
+import { TransProvider } from '@mbarzda/solid-i18next';
 import { state } from "./lib/store";
+import { Router } from "@solidjs/router";
 
 const resources = {
   th: {
@@ -40,4 +41,8 @@ const resources = {
   }
 }
 
-render(() => <TransProvider options={{ resources }} lng={state.lang} children={<App />} />, document.getElementById("root") as HTMLElement);
+render(() =>
+  <Router>
+    <TransProvider options={{ resources }} lng={state.lang} children={<RoutesPage />} />
+  </Router>
+  , document.getElementById("root") as HTMLElement);

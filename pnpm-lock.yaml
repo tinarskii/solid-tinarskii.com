@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@mbarzda/solid-i18next': ^1.1.6
+  '@solidjs/router': ^0.5.0
   '@typescript-eslint/eslint-plugin': ^5.26.0
   '@typescript-eslint/parser': ^5.26.0
   autoprefixer: ^10.4.7
@@ -19,6 +20,7 @@ specifiers:
 
 dependencies:
   '@mbarzda/solid-i18next': 1.1.6_xf3l6cbtigwp4nbwttbndi245u
+  '@solidjs/router': 0.5.0_solid-js@1.4.2
   '@typescript-eslint/eslint-plugin': 5.26.0_gu4clceiw6ditaem5r577qrdpi
   '@typescript-eslint/parser': 5.26.0_utdtartgf6fqqgkivzeynh76la
   daisyui: 2.22.0_ugi4xkrfysqkt4c4y6hkyfj344
@@ -444,6 +446,14 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.13.0
+
+  /@solidjs/router/0.5.0_solid-js@1.4.2:
+    resolution: {integrity: sha512-rNR07l21tWWDVmCbaapggB89rEX7jlM2XChpTLqEGEnj46LzVZ8zgvjcF6NNKScByAlLpoQUkVIjB2KHpcMi+w==}
+    peerDependencies:
+      solid-js: ^1.5.3
+    dependencies:
+      solid-js: 1.4.2
+    dev: false
 
   /@types/json-schema/7.0.11:
     resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}

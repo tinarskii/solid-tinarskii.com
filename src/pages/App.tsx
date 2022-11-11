@@ -1,7 +1,7 @@
 import type { Component } from "solid-js";
-import { about, contact, education, events, interests, projects, technology, images } from "./data";
+import { about, contact, education, events, interests, projects, technology, images } from "../data";
 import { For, onMount, Show } from "solid-js";
-import { setState, state } from "./lib/store";
+import { setState, state } from "../lib/store";
 import { Trans, useTransContext } from "@mbarzda/solid-i18next";
 
 const flag = {

@@ -38,7 +38,10 @@ const App: Component = (i18n: any) => {
           />
         </a>
       </div>
-      <section class="ac flex flex-row w-full overflow-x-scroll snap-x gap-0 flex-nowrap rounded-2xl">
+      <section
+        class="ac flex flex-row w-full overflow-x-scroll snap-x gap-0 flex-nowrap rounded-2xl cursor-pointer"
+        onClick={() => window.open("/gallery")}
+      >
          <For each={images}>{(img) =>
            <div class="item box-content snap-start w-full h-full relative flex flex-none">
              <img src={img} class="object-cover w-full h-[65vh] " />
